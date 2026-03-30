@@ -107,6 +107,10 @@ with st.sidebar:
     )
 
     st.markdown("---")
+    if st.button("↺ Reset Filters", use_container_width=True):
+        st.session_state.clear()
+        st.rerun()
+
     st.markdown(
         "<span style='color:#555;font-size:0.75rem;'>"
         "Data: NUFORC via Kaggle<br>"
@@ -203,7 +207,7 @@ if year_range[0] <= 1995 <= year_range[1]:
         )
 
 fig1 = styled_fig(fig1, height=320)
-fig1.update_layout(showlegend=False, xaxis=dict(title=None), yaxis=dict(title="Sightings"))
+fig1.update_layout(showlegend=False, xaxis=dict(title=None), yaxis=dict(title="Reported Sightings"))
 st.plotly_chart(fig1, use_container_width=True)
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -235,7 +239,7 @@ with col_left:
         xaxis=dict(title="Hour of Day (24h)", dtick=3,
                    tickvals=list(range(0, 24, 3)),
                    ticktext=["12am","3am","6am","9am","12pm","3pm","6pm","9pm"]),
-        yaxis=dict(title="Sightings"),
+        yaxis=dict(title="Reported Sightings"),
     )
     fig2.add_annotation(
         x=peak_hour, y=hourly["count"].max(),
@@ -284,7 +288,7 @@ with col_right:
     fig3 = styled_fig(fig3, height=340)
     fig3.update_layout(
         xaxis=dict(title=None),
-        yaxis=dict(title="Sightings"),
+        yaxis=dict(title="Reported Sightings"),
         legend=dict(orientation="h", y=-0.22, x=0),
     )
     st.plotly_chart(fig3, use_container_width=True)
