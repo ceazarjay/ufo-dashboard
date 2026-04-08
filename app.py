@@ -76,7 +76,7 @@ df_raw = load_data()
 
 # ── Sidebar filters ─────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("## 🛸 Filters")
+    st.markdown("##  Filters")
     st.markdown("---")
 
     countries_available = sorted(df_raw["country"].dropna().unique().tolist())
