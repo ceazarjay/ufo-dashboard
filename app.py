@@ -8,7 +8,6 @@ import numpy as np
 # ── Page config ────────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="UFO Sightings Explorer",
-    page_icon="🛸",
     layout="wide",
     initial_sidebar_state="expanded",
 )
